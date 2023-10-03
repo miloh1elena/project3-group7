@@ -6,7 +6,7 @@ const apiUrlReviewDate = "http://localhost:8000/api/v1.0/review_date";
 
 // Define the createBubbleChart function
 function createBubbleChart() {
-  // Load and process your data from the APIs
+  // Load and process data from the APIs
   Promise.all([
     d3.json(apiUrlSource),
     d3.json(apiUrlRating),
@@ -40,18 +40,18 @@ function createBubbleChart() {
       bubbleDropdown.append("option").attr("value", month).text(monthName);
     });
 
-    // Add event listener to the dropdown for filtering by month
+    // event listener dropdown for filtering by month
     bubbleDropdown.on("change", function () {
       const selectedMonth = parseInt(d3.select(this).property("value"));
       updateBubbleChart(sourceData, selectedMonth, reviewDateData);
     });
 
-    // Trigger the initial creation of the bubble chart
+    // creation of the bubble chart
     updateBubbleChart(sourceData, -1, reviewDateData);
   });
 }
 
-// Update the bubble chart function
+// Update bubble chart function
 function updateBubbleChart(data, selectedMonth, reviewDateData) {
   let filteredData = data;
 
@@ -94,15 +94,15 @@ function updateBubbleChart(data, selectedMonth, reviewDateData) {
     yaxis: {
       visible: false
     },
-    showlegend: false  // Add this line to hide the legend
+    showlegend: false
   });
 }
 
-// Trigger the initial creation of the bubble chart
+// creation of the bubble chart
 createBubbleChart();
 
 // line chart beginning  
-// Function to parse ratings from the peculiar format
+// Function to format data from rating API
 function parseRatings(data) {
   const regex = /\((\d),\)/g;
   let match;
@@ -133,7 +133,7 @@ async function fetchData() {
   createLineChart(combinedData);
 }
 
-// Create the initial line chart
+// Create line chart
 function createLineChart(data) {
   const uniquePlatforms = Array.from(new Set(data.map(d => d.source)));
   const lineDropdown = d3.select("#platformTrendDropdown");
@@ -151,7 +151,7 @@ function createLineChart(data) {
   updateLineChart(data, 'Total');
 }
 
-// Update the line chart based on the selected platform
+// Update the line chart based on filters
 function updateLineChart(data, selectedPlatform) {
   const filteredData = selectedPlatform === 'Total' ? data : data.filter(d => d.source === selectedPlatform);
   
@@ -194,11 +194,11 @@ function updateLineChart(data, selectedPlatform) {
   Plotly.newPlot('lineChart', lineData, lineLayout);
 }
 
-// Fetch data and create chart
+// create chart
 fetchData();
 
 // Bar chart beginning 
-// Function to parse ratings from the peculiar format
+// Function to format data from 'rating' API
 function parseRatings(data) {
   const regex = /\((\d),\)/g;
   let match;
