@@ -10,6 +10,7 @@ Added the following files:
 - in the 'static' folder:
     - 'index.html' which is the code for the visualization wave page
     - 'plots.js' which is the java script code for the visualizations.
+- Added the PPT file of the presentation: "project3-group7-deck.pptx"
 
 #  Analysis:
 Key insight: Threads was big news, but because old news fast!
