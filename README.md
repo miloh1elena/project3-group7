@@ -10,3 +10,10 @@ Added the following files:
 - in the 'static' folder:
     - 'index.html' which is the code for the visualization wave page
     - 'plots.js' which is the java script code for the visualizations.
+
+#  Analysis:
+Key insight: Threads was big news, but because old news fast!
+
+Takeaway 1: Android is the main source of downloads/reviews (91% of reviews).
+Takeaway 2: The hype for Threads was short lived (lasted 4 days). Need to keep people engaged.
+Takeaway 3: Android users have a more positive perception of the app.  Apple users show a higher proportion of negative reviews.
